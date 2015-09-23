@@ -1,0 +1,18 @@
+{
+  "name": "aws-s3-signurl",
+  "version": "1.0.0",
+  "description": "Create signed urls for a bucket/key or the contents of a bucket",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"  
+  },
+  "author": "Chris Pilsworth",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.2.4"
+  },
+  "preferGlobal": true,
+  "bin" : { 
+    "aws-s3-signurl" : "./index.js" 
+  }
+}
