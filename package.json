@@ -10,7 +10,7 @@
     "url": "https://github.com/cpilsworth/aws-s3-signurl/issues"
   },
   "dependencies": {
-    "aws-sdk": "2.2.10"
+    "aws-sdk": "2.2.11"
   },
   "devDependencies": {
     "fixpack": "2.2.0"
