@@ -2,8 +2,8 @@ var AWS = require('aws-sdk');
 
 var s3 = new AWS.S3();
 
-function signUrl(bucket, key) {
-    var url = s3.getSignedUrl('getObject', {Bucket: bucket, Key: key});
+function signUrl(bucket, key, timeout) {
+    var url = s3.getSignedUrl('getObject', {Bucket: bucket, Key: key, Expires: timeout});
     console.log(url);
     return url;
 }

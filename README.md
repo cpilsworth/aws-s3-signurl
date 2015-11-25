@@ -17,5 +17,13 @@ npm install --global aws-s3-signurl
 
 usage:
 ```
-aws-s3-signurl {bucketname} [{keyname}]
+aws-s3-signurl {bucketname} [{keyname}] [{expires}]
 ```
+
+If a just a bucketname is supplied, the contents of the bucket will be listed.
+
+If a key is supplied, then just that key will be output.
+
+If an expires is supplied (number, in seconds) then the link will be valid for that many seconds (default = 900 seconds).
+
+

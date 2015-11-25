@@ -15,7 +15,8 @@
   "devDependencies": {
     "code": "^2.0.1",
     "fixpack": "2.2.0",
-    "lab": "^7.3.0"
+    "lab": "^7.3.0",
+    "minimist": "^1.2.0"
   },
   "homepage": "https://github.com/cpilsworth/aws-s3-signurl",
   "keywords": [
