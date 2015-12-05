@@ -1,7 +1,7 @@
 # aws-s3-signurl
 
 [![Build Status](https://travis-ci.org/cpilsworth/aws-s3-signurl.svg?branch=master)](https://travis-ci.org/cpilsworth/aws-s3-signurl)
-[![Code Climate](https://codeclimate.com/github/cpilsworth/aws-s3-signurl/badges/gpa.svg)](https://codeclimate.com/github/cpilsworth/aws-s3-signurl)
+[![Test Coverage](https://codeclimate.com/github/cpilsworth/aws-s3-signurl/badges/coverage.svg)](https://codeclimate.com/github/cpilsworth/aws-s3-signurl/coverage)
 
 The AWS CLI does not currently have the ability to sign urls for time restricted access to secure buckets.  This simple utility
 takes a bucketname and (optionally) a keyname and outputs a signed url for them. If just the bucketname is provided a signed url 
