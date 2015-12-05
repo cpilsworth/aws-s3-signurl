@@ -33,7 +33,7 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/npm.git"
+    "url": "git@github.com/cpilsworth/aws-s3-signurl.git"
   },
   "scripts": {
     "start": "node index.js",
