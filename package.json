@@ -9,6 +9,9 @@
   "bugs": {
     "url": "https://github.com/cpilsworth/aws-s3-signurl/issues"
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {
     "aws-sdk": "^2.2.19"
   },
@@ -34,6 +37,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "lab test/test.js"
+    "test": "lab test/test.js",
+    "test-cov-html": "lab -fL -r html -m 3000 -o coverage.html"
   }
 }
