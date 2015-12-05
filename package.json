@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "code": "^2.0.1",
+    "codeclimate-test-reporter": "^0.1.1",
     "fixpack": "2.2.0",
     "lab": "^8.0.0",
     "minimist": "^1.2.0"
@@ -39,5 +40,6 @@
     "start": "node index.js",
     "test": "lab test/test.js",
     "test-cov-html": "lab -fL -r html -m 3000 -o coverage.html"
+    "codeclimate": "CODECLIMATE_REPO_TOKEN=1ac2ff11ef577775474885ed44c3154adc04122079ac2763e667844f76ef03c5 codeclimate-test-reporter < lcov.info"
   }
 }
