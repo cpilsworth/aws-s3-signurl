@@ -2,3 +2,5 @@ node_modules/
 .idea/
 .DS_Store
 coverage.html
+lcov.info
+npm-debug.log
