@@ -13,7 +13,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.3.2"
+    "aws-sdk": "^2.3.6"
   },
   "devDependencies": {
     "code": "^2.0.1",
