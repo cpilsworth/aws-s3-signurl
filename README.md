@@ -1,5 +1,7 @@
 # aws-s3-signurl
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/cpilsworth/aws-s3-signurl.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/cpilsworth/aws-s3-signurl.svg?branch=master)](https://travis-ci.org/cpilsworth/aws-s3-signurl)
 [![Test Coverage](https://codeclimate.com/github/cpilsworth/aws-s3-signurl/badges/coverage.svg)](https://codeclimate.com/github/cpilsworth/aws-s3-signurl/coverage)
 
