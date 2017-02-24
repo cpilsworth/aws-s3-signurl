@@ -7,12 +7,12 @@ const https = require('https')
 const signUrl = require('../signurl.js')
 
 lab.test('base url is provided', (done) => {
-  Code.expect(signUrl.signUrl('aws-s3-signurl', 'test-file.txt')).to.startWith('https://aws-s3-signurl.s3.amazonaws.com/test-file.txt')
+  Code.expect(signUrl.signUrl('aws-s3-signurl', 'test-file.txt')).to.startWith('https://aws-s3-signurl-test.s3.amazonaws.com/test-file.txt')
   done()
 })
 
 lab.test('url is blocked without signature', (done) => {
-  https.get('https://aws-s3-signurl.s3.amazonaws.com/test-file.txt', (res) => {
+  https.get('https://aws-s3-signurl-test.s3.amazonaws.com/test-file.txt', (res) => {
     Code.expect(res.statusCode).to.equal(403)
     done()
   })
