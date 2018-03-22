@@ -16,5 +16,5 @@ else if (bucket) {
   })
 }
 else {
-  console.log('usage aws-s3-signurl {bucket} [{key}] [{expires=900(s)}')
+  console.log('usage aws-s3-signurl {bucket} [{key}] [--expires={seconds}]')
 }
