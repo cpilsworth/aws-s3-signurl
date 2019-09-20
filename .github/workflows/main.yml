@@ -7,3 +7,14 @@ action "GitHub Action for npm" {
   uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
   runs = "npm install"
 }
+
+
+on: push
+name: verify
+jobs:
+  sayHi:
+    name: install
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/npm@master
+      runs: npm install
