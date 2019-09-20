@@ -10,6 +10,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10
-    - runs: npm install
-    - runs: npm test
+    - run: npm install
+    - run: npm test
       
