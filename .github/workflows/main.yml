@@ -1,9 +1,15 @@
 on: push
 name: verify
 jobs:
-  sayHi:
+  build:
     name: install
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/npm@master
-      runs: npm install
+    - uses: actions/checkout@v1
+    - name: setup node
+      uses: actions/setup-node@v1
+        with:
+          node-version: 10
+    - runs: npm install
+    - runs: npm test
+      
