@@ -8,8 +8,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: setup node
       uses: actions/setup-node@v1
-        with:
-          node-version: 10
+      with:
+        node-version: 10
     - runs: npm install
     - runs: npm test
       
