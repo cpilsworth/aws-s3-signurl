@@ -41,5 +41,8 @@
     "test": "lab test/test.js",
     "test-cov-html": "lab -fL -r html -m 3000 -o coverage.html",
     "precodeclimate": "lab -r lcov > lcov.info"
+  },
+  "publishConfig": { 
+    "registry": "https://npm.pkg.github.com/" 
   }
 }
