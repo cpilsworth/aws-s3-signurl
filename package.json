@@ -18,6 +18,7 @@
   "devDependencies": {
     "@hapi/code": "^6.0.0",
     "@hapi/lab": "^20.3.2",
+    "eslint": "^6.4.0",
     "minimist": "^1.2.0",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
@@ -42,7 +43,7 @@
     "test-cov-html": "lab -fL -r html -m 3000 -o coverage.html",
     "precodeclimate": "lab -r lcov > lcov.info"
   },
-  "publishConfig": { 
-    "registry": "https://npm.pkg.github.com/" 
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

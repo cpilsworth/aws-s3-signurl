@@ -17,8 +17,6 @@ it('url is blocked without signature', async () => {
 });
 
 it('url is not blocked with signature', async () => {
-  
-  console.log(signUrl.signUrl(TEST_BUCKET, TEST_FILE));
   try {
   const response = await get(signUrl.signUrl(TEST_BUCKET, TEST_FILE));
   expect(response.statusCode).to.equal(200);

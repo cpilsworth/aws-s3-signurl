@@ -1,32 +1,21 @@
-'use strict'
-const AWS = require('aws-sdk')
-const s3 = new AWS.S3()
+const S3 = require('aws-sdk/clients/s3');
+const s3 = new S3();
 
 function signUrl (bucket, key, timeout) {
-
   const url = s3.getSignedUrl('getObject', {
     Bucket: bucket,
     Key: key,
     Expires: timeout })
-  console.log(url)
-  return url
+  return url;
 }
 
-function listObjects (params) {
-
-  s3.listObjects(params, (err, data) => {
-
-    if (err) {
-      process.exit(-1)
-    }
-
-    for (const item of data.Contents) {
-      signUrl(params.Bucket, item.Key)
-    }
-  })
+async function listObjects (params, timeout) {
+  const data = await s3.listObjects(params).promise();
+  if (!data || !data.Contents) {
+    return [];
+  }
+  return data.Contents.map(item => signUrl(params.Bucket, item.Key, timeout));
 }
 
-module.exports = {
-  signUrl: signUrl,
-  listObjects: listObjects
-}
+exports.signUrl = signUrl;
+exports.listObjects = listObjects;
