@@ -1,31 +1,40 @@
-'use strict'
-
-const Code = require('code')
-const Lab = require('lab')
-const lab = exports.lab = Lab.script()
-const https = require('https')
+const { expect } = require('@hapi/code');
+const { it } = exports.lab = require('@hapi/lab').script();
+const request = require('request-promise-native');
 const signUrl = require('../signurl.js')
 
-const testBucket = 'aws-s3-signurl-test';
-const testFile = 'test-file.txt';
-const testFileUrl = 'https://' + testBucket + '.s3.amazonaws.com/' + testFile;
+const TEST_BUCKET = 'aws-s3-signurl-test';
+const TEST_FILE = 'test-file.txt';
+const TEST_URL = `https://${TEST_BUCKET}.s3.amazonaws.com/${TEST_FILE}`;
 
-lab.test('base url is provided', (done) => {
-  Code.expect(signUrl.signUrl(testBucket, 'test-file.txt')).to.startWith(testFileUrl)
-  done();
+it('base url is provided', () => {
+  expect(signUrl.signUrl(TEST_BUCKET, 'test-file.txt')).to.startWith(TEST_URL)
 });
 
-lab.test('url is blocked without signature', (done) => {
-  https.get(testFileUrl, (res) => {
-    Code.expect(res.statusCode).to.equal(403)
-    done()
-  });
+it('url is blocked without signature', async () => {
+  const response = await get(TEST_URL);
+  expect(response.statusCode).to.equal(403)
 });
 
-lab.test('url is not blocked with signature', (done) => {
-  console.log(signUrl.signUrl(testBucket, testFile));
-  var req = https.get(signUrl.signUrl(testBucket, testFile), (res) => {
-    Code.expect(res.statusCode).to.equal(200)
-    done()
-  });
+it('url is not blocked with signature', async () => {
+  
+  console.log(signUrl.signUrl(TEST_BUCKET, TEST_FILE));
+  try {
+  const response = await get(signUrl.signUrl(TEST_BUCKET, TEST_FILE));
+  expect(response.statusCode).to.equal(200);
+  } catch (e) {
+    console.error("Exception calling url without sig", e);
+  }
 })
+
+/**
+ * Call prepare `options` for the request.  The full response is required as
+ * the statusCode values are inspected in the tests.
+ */
+function get(uri) {
+  return request({ uri: uri,
+          simple: false,   // don't throw exception if not statusCode == 200
+          method: "GET",
+          resolveWithFullResponse: true  // return the full response, not just body
+        });
+}

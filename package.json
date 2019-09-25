@@ -10,17 +10,17 @@
     "url": "https://github.com/cpilsworth/aws-s3-signurl/issues"
   },
   "engines": {
-    "node": ">=8.0.0 < 11.0.0"
+    "node": ">=10.0.0 < 11.0.0"
   },
   "dependencies": {
-    "aws-sdk": "^2.393.0"
+    "aws-sdk": "^2.535.0"
   },
   "devDependencies": {
-    "code": "^5.0.0",
-    "codeclimate-test-reporter": "^0.4.0",
-    "fixpack": "2.3.1",
-    "lab": "^14.0.1",
-    "minimist": "^1.2.0"
+    "@hapi/code": "^6.0.0",
+    "@hapi/lab": "^20.3.2",
+    "minimist": "^1.2.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
   },
   "homepage": "https://github.com/cpilsworth/aws-s3-signurl",
   "keywords": [
@@ -40,7 +40,6 @@
     "start": "node index.js",
     "test": "lab test/test.js",
     "test-cov-html": "lab -fL -r html -m 3000 -o coverage.html",
-    "precodeclimate": "lab -r lcov > lcov.info",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=1ac2ff11ef577775474885ed44c3154adc04122079ac2763e667844f76ef03c5 codeclimate-test-reporter < lcov.info"
+    "precodeclimate": "lab -r lcov > lcov.info"
   }
 }
