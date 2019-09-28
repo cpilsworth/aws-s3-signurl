@@ -6,13 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: setup node
+    - name: Use Node.js 
       uses: actions/setup-node@v1
       with:
         node-version: 10
-    - run: npm install
-    - run: npm test
+    - run: |
+        npm install
+        npm run build --if-present
+        npm test
       env: 
+        CI: true
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       
