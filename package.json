@@ -1,7 +1,7 @@
 {
   "name": "@cpilsworth/aws-s3-signurl",
   "description": "Create signed urls for a bucket/key or the contents of a bucket",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Chris Pilsworth",
   "bin": {
     "aws-s3-signurl": "./index.js"
