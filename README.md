@@ -3,8 +3,6 @@
 ![Build Status](https://github.com/cpilsworth/aws-s3-signurl/workflows/verify/badge.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/cpilsworth/aws-s3-signurl.svg)](https://greenkeeper.io/)
 
-
-
 The AWS CLI does not currently have the ability to sign urls for time restricted access to secure buckets.  This simple utility
 takes a bucketname and (optionally) a keyname and outputs a signed url for them. If just the bucketname is provided a signed url 
 for each of the keys is output.  If the key is specified also, then just that bucket/key combo is output.
