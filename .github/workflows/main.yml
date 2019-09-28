@@ -24,6 +24,11 @@ jobs:
           node-version: 12       
           registry-url: 'https://npm.pkg.github.com' 
           scope: '@cpilsworth'
+      - name: setup auth
+        run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" > .npmrc
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - name: npm publish gpr (on tag)
         run: npm publish 
         env:
