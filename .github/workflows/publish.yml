@@ -42,6 +42,7 @@ jobs:
         if: contains(github.ref, 'tags')
         env:
           REF: ${{ github. ref }}
+        run: echo "${REF}"
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
