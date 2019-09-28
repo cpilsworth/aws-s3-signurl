@@ -12,17 +12,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: print context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+        
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
+          
       - uses: actions/setup-node@v1
         with:
           node-version: 10
+          registry-url: "https://npm.pkg.github.com"
       - run: |
           npm install
           npm run build --if-present
           npm test
         env: 
+          NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
           CI: true
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -31,6 +39,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: tag
+        if: contains(github.ref, 'tags')
+        env:
+          REF: ${{ github. ref }}
+        run: echo "${REF}"
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
@@ -40,3 +53,4 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        if: contains(github.ref, 'tags')
