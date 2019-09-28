@@ -30,6 +30,7 @@ jobs:
           npm run build --if-present
           npm test
         env: 
+          NODE_AUTH_TOKEN: "${GITHUB_TOKEN}"
           CI: true
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
