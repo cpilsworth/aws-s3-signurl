@@ -1,5 +1,5 @@
 {
-  "name": "aws-s3-signurl",
+  "name": "@cpilsworth/aws-s3-signurl",
   "description": "Create signed urls for a bucket/key or the contents of a bucket",
   "version": "1.0.1",
   "author": "Chris Pilsworth",
@@ -35,7 +35,7 @@
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "git@github.com/cpilsworth/aws-s3-signurl.git"
+    "url": "git://github.com/cpilsworth/aws-s3-signurl.git"
   },
   "scripts": {
     "start": "node index.js",
