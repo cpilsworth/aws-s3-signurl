@@ -40,8 +40,5 @@
   "scripts": {
     "start": "node index.js",
     "test": "lab test/test.js"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
