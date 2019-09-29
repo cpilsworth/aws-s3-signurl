@@ -1,5 +1,5 @@
 {
-  "name": "@cpilsworth/aws-s3-signurl",
+  "name": "aws-s3-signurl",
   "description": "Create signed urls for a bucket/key or the contents of a bucket",
   "version": "1.1.5",
   "author": "Chris Pilsworth",
@@ -39,9 +39,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "lab test/test.js",
-    "test-cov-html": "lab -fL -r html -m 3000 -o coverage.html",
-    "precodeclimate": "lab -r lcov > lcov.info"
+    "test": "lab test/test.js"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

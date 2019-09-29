@@ -29,7 +29,6 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-          scope: '@cpilsworth'
       - name: setup auth
         run: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" >> .npmrc
         env: 
@@ -49,7 +48,6 @@ jobs:
         with:
           node-version: 12       
           registry-url: 'https://npm.pkg.github.com' 
-          scope: '@cpilsworth'
       - name: setup auth
         run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
         env: 
