@@ -25,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
@@ -36,27 +38,4 @@ jobs:
       - run: npm publish
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-        if: contains(github.ref, 'tags')
-  
-  publish-gpr:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12       
-          registry-url: 'https://npm.pkg.github.com' 
-      - name: setup auth
-        run: echo "//npm.pkg.github.com/:_authToken=${GPR_TOKEN}" >> .npmrc
-        env: 
-          GPR_TOKEN: ${{ secrets.GPR_TOKEN }}          
-      - name: npm publish gpr (on tag)
-        run: |
-          npm config set registry https://npm.pkg.github.com
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
         if: contains(github.ref, 'tags')
