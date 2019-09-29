@@ -50,11 +50,13 @@ jobs:
           node-version: 12       
           registry-url: 'https://npm.pkg.github.com' 
       - name: setup auth
-        run: echo "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}" >> .npmrc
+        run: echo "//npm.pkg.github.com/:_authToken=${GPR_TOKEN}" >> .npmrc
         env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
+          GPR_TOKEN: ${{ secrets.GPR_TOKEN }}          
       - name: npm publish gpr (on tag)
-        run: npm publish 
+        run: |
+          npm config set registry https://npm.pkg.github.com
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
         if: contains(github.ref, 'tags')
