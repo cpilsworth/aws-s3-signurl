@@ -3,7 +3,7 @@ const { it } = exports.lab = require('@hapi/lab').script();
 const request = require('request-promise-native');
 const signUrl = require('../signurl.js')
 
-const TEST_BUCKET = 'aws-s3-signurl-test';
+const TEST_BUCKET = 'aws-s3-signurl-testing';
 const TEST_FILE = 'test-file.txt';
 const TEST_URL = `https://${TEST_BUCKET}.s3.amazonaws.com/${TEST_FILE}`;
 
