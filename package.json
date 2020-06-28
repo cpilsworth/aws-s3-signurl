@@ -19,7 +19,7 @@
     "@hapi/code": "^7.0.0",
     "@hapi/lab": "^20.3.2",
     "eslint": "^6.4.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.5",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7"
   },
